@@ -110,12 +110,47 @@ Grid 5.00 mm&lt;p&gt;
 <text x="0.4756" y="0.635" size="1.27" layer="51" ratio="10">3</text>
 <text x="5.4286" y="0.635" size="1.27" layer="51" ratio="10">4</text>
 </package>
+<package name="W237-102" urn="urn:adsk.eagle:footprint:10676/1" library_version="2">
+<description>&lt;b&gt;WAGO SCREW CLAMP&lt;/b&gt;</description>
+<wire x1="-3.491" y1="-2.286" x2="-1.484" y2="-0.279" width="0.254" layer="51"/>
+<wire x1="1.488" y1="-2.261" x2="3.469" y2="-0.254" width="0.254" layer="51"/>
+<wire x1="-4.989" y1="-5.461" x2="4.993" y2="-5.461" width="0.1524" layer="21"/>
+<wire x1="4.993" y1="3.734" x2="4.993" y2="3.531" width="0.1524" layer="21"/>
+<wire x1="4.993" y1="3.734" x2="-4.989" y2="3.734" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="-5.461" x2="-4.989" y2="-3.073" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="-3.073" x2="-3.389" y2="-3.073" width="0.1524" layer="21"/>
+<wire x1="-3.389" y1="-3.073" x2="-1.611" y2="-3.073" width="0.1524" layer="51"/>
+<wire x1="-1.611" y1="-3.073" x2="1.615" y2="-3.073" width="0.1524" layer="21"/>
+<wire x1="3.393" y1="-3.073" x2="4.993" y2="-3.073" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="-3.073" x2="-4.989" y2="3.531" width="0.1524" layer="21"/>
+<wire x1="4.993" y1="-3.073" x2="4.993" y2="-5.461" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="3.531" x2="4.993" y2="3.531" width="0.1524" layer="21"/>
+<wire x1="-4.989" y1="3.531" x2="-4.989" y2="3.734" width="0.1524" layer="21"/>
+<wire x1="4.993" y1="3.531" x2="4.993" y2="-3.073" width="0.1524" layer="21"/>
+<wire x1="1.615" y1="-3.073" x2="3.393" y2="-3.073" width="0.1524" layer="51"/>
+<circle x="-2.5" y="-1.27" radius="1.4986" width="0.1524" layer="51"/>
+<circle x="-2.5" y="2.2098" radius="0.508" width="0.1524" layer="21"/>
+<circle x="2.5038" y="-1.27" radius="1.4986" width="0.1524" layer="51"/>
+<circle x="2.5038" y="2.2098" radius="0.508" width="0.1524" layer="21"/>
+<pad name="1" x="-2.5" y="-1.27" drill="1.1938" shape="long" rot="R90"/>
+<pad name="2" x="2.5" y="-1.27" drill="1.1938" shape="long" rot="R90"/>
+<text x="-5.04" y="-7.62" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.8462" y="-5.0038" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-4.532" y="0.635" size="1.27" layer="21" ratio="10">1</text>
+<text x="0.421" y="0.635" size="1.27" layer="21" ratio="10">2</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="W237-4" urn="urn:adsk.eagle:package:10695/1" type="box" library_version="2">
 <description>WAGO SCREW CLAMP</description>
 <packageinstances>
 <packageinstance name="W237-4"/>
+</packageinstances>
+</package3d>
+<package3d name="W237-102" urn="urn:adsk.eagle:package:10688/1" type="box" library_version="2">
+<description>WAGO SCREW CLAMP</description>
+<packageinstances>
+<packageinstance name="W237-102"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -164,228 +199,28 @@ Grid 5.00 mm&lt;p&gt;
 </device>
 </devices>
 </deviceset>
-</devicesets>
-</library>
-<library name="con-jack" urn="urn:adsk.eagle:library:154">
-<description>&lt;b&gt;Jacks&lt;/b&gt;&lt;p&gt;
-Power Connectors&lt;br&gt;
-Phone Connectors&lt;br&gt;
-Cinch Connectors&lt;br&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="SPC4078" urn="urn:adsk.eagle:footprint:7489/1" library_version="2">
-<description>&lt;b&gt;DC POWER JACK 2.5mm&lt;/b&gt; Right Angle, Through Hole, Rated 5A at 16VDC, PC Terminals&lt;p&gt;
-Source: www.spctechnology.com .. 84N1162.pdf&lt;br&gt;
-Distributor: &lt;b&gt;Farnell (www.Farnell.de)&lt;/b&gt;&lt;br&gt;
-Created by Robert Siegler</description>
-<wire x1="-10.75" y1="-4.5" x2="-10.75" y2="-3.2" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="-3.2" x2="-10.75" y2="3.2" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="3.2" x2="-10.75" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-7.25" y1="-4.5" x2="-7.25" y2="4" width="0.1" layer="21"/>
-<wire x1="-7.25" y1="4" x2="-7.25" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-7.25" y1="-4" x2="1.25" y2="-4" width="0.1" layer="51"/>
-<wire x1="-7.25" y1="4" x2="1.25" y2="4" width="0.1" layer="21"/>
-<wire x1="1.25" y1="-4" x2="1.25" y2="4" width="0.1" layer="51"/>
-<wire x1="1.25" y1="-4.5" x2="1.25" y2="-4" width="0.1" layer="51"/>
-<wire x1="1.25" y1="4" x2="1.25" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="4.5" x2="1.25" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="-4.5" x2="1.25" y2="-4.5" width="0.1" layer="51"/>
-<wire x1="1.25" y1="-4" x2="2.75" y2="-4" width="0.1" layer="51"/>
-<wire x1="2.75" y1="-4" x2="3.25" y2="-4" width="0.1" layer="51"/>
-<wire x1="1.25" y1="4" x2="2.75" y2="4" width="0.1" layer="21"/>
-<wire x1="2.75" y1="4" x2="3.25" y2="4" width="0.1" layer="21"/>
-<wire x1="3.25" y1="-4" x2="3.25" y2="4" width="0.1" layer="51"/>
-<wire x1="2.75" y1="-4" x2="2.75" y2="4" width="0.1" layer="51"/>
-<wire x1="-10.75" y1="3.2" x2="-1.75" y2="3.2" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-10.75" y1="-3.2" x2="-1.75" y2="-3.2" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-1.75" y1="-3.2" x2="-1.75" y2="-1.25" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-1.75" y1="-1.25" x2="-1.75" y2="1.25" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-1.75" y1="1.25" x2="-1.75" y2="3.2" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-8.75" y1="1.25" x2="-1.75" y2="1.25" width="0.1" layer="51" style="shortdash"/>
-<wire x1="-8.75" y1="-1.25" x2="-1.75" y2="-1.25" width="0.1" layer="51" style="shortdash"/>
-<wire x1="-8.75" y1="1.25" x2="-8.75" y2="-1.25" width="0.1" layer="21" curve="180"/>
-<wire x1="2.5" y1="1.75" x2="3.5" y2="1.75" width="0" layer="46"/>
-<wire x1="3.5" y1="1.75" x2="3.5" y2="-1.75" width="0" layer="46"/>
-<wire x1="3.5" y1="-1.75" x2="2.5" y2="-1.75" width="0" layer="46"/>
-<wire x1="2.5" y1="-1.75" x2="2.5" y2="1.75" width="0" layer="46"/>
-<wire x1="-3.4" y1="1.5" x2="-2.6" y2="1.5" width="0" layer="46"/>
-<wire x1="-2.6" y1="1.5" x2="-2.6" y2="-1.5" width="0" layer="46"/>
-<wire x1="-2.6" y1="-1.5" x2="-3.4" y2="-1.5" width="0" layer="46"/>
-<wire x1="-3.4" y1="-1.5" x2="-3.4" y2="1.5" width="0" layer="46"/>
-<wire x1="-1.5" y1="-4.4" x2="1.5" y2="-4.4" width="0" layer="46"/>
-<wire x1="1.5" y1="-4.4" x2="1.5" y2="-5.2" width="0" layer="46"/>
-<wire x1="1.5" y1="-5.2" x2="-1.5" y2="-5.2" width="0" layer="46"/>
-<wire x1="-1.5" y1="-5.2" x2="-1.5" y2="-4.4" width="0" layer="46"/>
-<wire x1="2.75" y1="2.35" x2="2.75" y2="4" width="0.1" layer="21"/>
-<wire x1="2.75" y1="-4" x2="2.75" y2="-2.35" width="0.1" layer="21"/>
-<wire x1="3.25" y1="-4" x2="3.25" y2="-2.35" width="0.1" layer="21"/>
-<wire x1="3.25" y1="2.35" x2="3.25" y2="4" width="0.1" layer="21"/>
-<wire x1="2.75" y1="-4" x2="3.25" y2="-4" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="-4.5" x2="-2.56" y2="-4.5" width="0.1" layer="21"/>
-<wire x1="1.25" y1="-2.73" x2="1.25" y2="4" width="0.1" layer="21"/>
-<pad name="2" x="0" y="-4.8" drill="0.8" diameter="2.1844" shape="long"/>
-<pad name="1" x="-3" y="0" drill="0.8" diameter="2.1844" shape="long" rot="R90"/>
-<pad name="3" x="3" y="0" drill="1" diameter="2.1844" shape="long" rot="R90"/>
-<text x="-10.16" y="-6.35" size="1.27" layer="27">&gt;VALUE</text>
-<text x="-10.16" y="5.08" size="1.27" layer="25">&gt;NAME</text>
-<rectangle x1="-1.25" y1="-5.05" x2="1.25" y2="-4.55" layer="51"/>
-<rectangle x1="2.75" y1="-1.5" x2="3.25" y2="1.5" layer="51"/>
-<rectangle x1="-3.1" y1="-1.25" x2="-2.9" y2="1.25" layer="51"/>
-</package>
-<package name="SPC4077" urn="urn:adsk.eagle:footprint:7488/1" library_version="2">
-<description>&lt;b&gt;DC POWER JACK 2mm&lt;/b&gt;&lt;br&gt; Right Angle, Through Hole, Rated 5A at 16VDC, PC Terminals&lt;p&gt;
-Source: www.spctechnology.com .. 84N1161.pdf&lt;br&gt;
-Distributor: &lt;b&gt;Farnell (www.Farnell.de)&lt;/b&gt;&lt;br&gt;
-Created by Robert Siegler</description>
-<wire x1="-10.75" y1="-4.5" x2="-10.75" y2="-3.2" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="-3.2" x2="-10.75" y2="3.2" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="3.2" x2="-10.75" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-7.25" y1="-4.5" x2="-7.25" y2="4" width="0.1" layer="21"/>
-<wire x1="-7.25" y1="4" x2="-7.25" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-7.25" y1="-4" x2="1.25" y2="-4" width="0.1" layer="51"/>
-<wire x1="-7.25" y1="4" x2="1.25" y2="4" width="0.1" layer="21"/>
-<wire x1="1.25" y1="-4" x2="1.25" y2="4" width="0.1" layer="51"/>
-<wire x1="1.25" y1="-4.5" x2="1.25" y2="-4" width="0.1" layer="51"/>
-<wire x1="1.25" y1="4" x2="1.25" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="4.5" x2="1.25" y2="4.5" width="0.1" layer="21"/>
-<wire x1="-10.75" y1="-4.5" x2="1.25" y2="-4.5" width="0.1" layer="51"/>
-<wire x1="1.25" y1="-4" x2="2.75" y2="-4" width="0.1" layer="51"/>
-<wire x1="2.75" y1="-4" x2="3.25" y2="-4" width="0.1" layer="51"/>
-<wire x1="1.25" y1="4" x2="2.75" y2="4" width="0.1" layer="21"/>
-<wire x1="2.75" y1="4" x2="3.25" y2="4" width="0.1" layer="21"/>
-<wire x1="3.25" y1="-4" x2="3.25" y2="4" width="0.1" layer="51"/>
-<wire x1="2.75" y1="-4" x2="2.75" y2="4" width="0.1" layer="51"/>
-<wire x1="-10.75" y1="3.2" x2="-1.75" y2="3.2" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-10.75" y1="-3.2" x2="-1.75" y2="-3.2" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-1.75" y1="-3.2" x2="-1.75" y2="-1" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-1.75" y1="-1" x2="-1.75" y2="1" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-1.75" y1="1" x2="-1.75" y2="3.2" width="0.1" layer="21" style="shortdash"/>
-<wire x1="-8.75" y1="-1" x2="-1.75" y2="-1" width="0.1" layer="51" style="shortdash"/>
-<wire x1="-8.75" y1="1" x2="-1.75" y2="1" width="0.1" layer="51" style="shortdash"/>
-<wire x1="-8.75" y1="-1" x2="-8.75" y2="1" width="0.1" layer="21" curve="-180"/>
-<wire x1="2.5" y1="1.75" x2="3.5" y2="1.75" width="0" layer="46"/>
-<wire x1="3.5" y1="1.75" x2="3.5" y2="-1.75" width="0" layer="46"/>
-<wire x1="3.5" y1="-1.75" x2="2.5" y2="-1.75" width="0" layer="46"/>
-<wire x1="2.5" y1="-1.75" x2="2.5" y2="1.75" width="0" layer="46"/>
-<wire x1="-3.4" y1="1.5" x2="-2.6" y2="1.5" width="0" layer="46"/>
-<wire x1="-2.6" y1="1.5" x2="-2.6" y2="-1.5" width="0" layer="46"/>
-<wire x1="-2.6" y1="-1.5" x2="-3.4" y2="-1.5" width="0" layer="46"/>
-<wire x1="-3.4" y1="-1.5" x2="-3.4" y2="1.5" width="0" layer="46"/>
-<wire x1="-1.5" y1="-4.4" x2="1.5" y2="-4.4" width="0" layer="46"/>
-<wire x1="1.5" y1="-4.4" x2="1.5" y2="-5.2" width="0" layer="46"/>
-<wire x1="1.5" y1="-5.2" x2="-1.5" y2="-5.2" width="0" layer="46"/>
-<wire x1="-1.5" y1="-5.2" x2="-1.5" y2="-4.4" width="0" layer="46"/>
-<wire x1="-10.75" y1="-4.5" x2="-2.56" y2="-4.5" width="0.1" layer="21"/>
-<wire x1="2.75" y1="-4" x2="3.25" y2="-4" width="0.1" layer="21"/>
-<wire x1="3.25" y1="-4" x2="3.25" y2="-2.35" width="0.1" layer="21"/>
-<wire x1="3.25" y1="2.35" x2="3.25" y2="4" width="0.1" layer="21"/>
-<wire x1="1.25" y1="-2.73" x2="1.25" y2="4" width="0.1" layer="21"/>
-<wire x1="2.75" y1="2.35" x2="2.75" y2="4" width="0.1" layer="21"/>
-<wire x1="2.75" y1="-4" x2="2.75" y2="-2.35" width="0.1" layer="21"/>
-<pad name="2" x="0" y="-4.8" drill="0.8" diameter="2.1844" shape="long"/>
-<pad name="1" x="-3" y="0" drill="0.8" diameter="2.1844" shape="long" rot="R90"/>
-<pad name="3" x="3" y="0" drill="1" diameter="2.1844" shape="long" rot="R90"/>
-<text x="-10.16" y="5.08" size="1.27" layer="25">&gt;NAME</text>
-<text x="-10.16" y="-6.35" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.25" y1="-5.05" x2="1.25" y2="-4.55" layer="51"/>
-<rectangle x1="2.75" y1="-1.5" x2="3.25" y2="1.5" layer="51"/>
-<rectangle x1="-3.1" y1="-1.25" x2="-2.9" y2="1.25" layer="51"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="SPC4078" urn="urn:adsk.eagle:package:7494/1" type="box" library_version="2">
-<description>DC POWER JACK 2.5mm Right Angle, Through Hole, Rated 5A at 16VDC, PC Terminals
-Source: www.spctechnology.com .. 84N1162.pdf
-Distributor: Farnell (www.Farnell.de)
-Created by Robert Siegler</description>
-<packageinstances>
-<packageinstance name="SPC4078"/>
-</packageinstances>
-</package3d>
-<package3d name="SPC4077" urn="urn:adsk.eagle:package:7492/1" type="box" library_version="2">
-<description>DC POWER JACK 2mm Right Angle, Through Hole, Rated 5A at 16VDC, PC Terminals
-Source: www.spctechnology.com .. 84N1161.pdf
-Distributor: Farnell (www.Farnell.de)
-Created by Robert Siegler</description>
-<packageinstances>
-<packageinstance name="SPC4077"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="JACK-PLUG" urn="urn:adsk.eagle:symbol:7487/1" library_version="2">
-<wire x1="-5.715" y1="1.27" x2="-5.715" y2="3.81" width="0.1524" layer="94" curve="-180"/>
-<wire x1="-5.715" y1="3.81" x2="-1.27" y2="3.81" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="3.81" x2="-1.27" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-5.715" y2="1.27" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="0.635" x2="0" y2="0.635" width="0.1524" layer="94"/>
-<wire x1="0" y1="0.635" x2="0" y2="4.445" width="0.1524" layer="94"/>
-<wire x1="0" y1="4.445" x2="-1.27" y2="4.445" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="4.445" x2="-1.27" y2="3.81" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="-5.715" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="-5.715" y1="-2.54" x2="-6.35" y2="-1.27" width="0.1524" layer="94"/>
-<wire x1="-6.35" y1="-1.27" x2="-6.985" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<text x="-7.62" y="5.08" size="1.778" layer="95">&gt;NAME</text>
-<text x="-7.62" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="3" x="5.08" y="2.54" visible="pad" length="middle" direction="pas" rot="R180"/>
-<pin name="2" x="5.08" y="0" visible="pad" length="middle" direction="pas" rot="R180"/>
-<pin name="1" x="5.08" y="-2.54" visible="pad" length="middle" direction="pas" rot="R180"/>
-<polygon width="0.1524" layer="94">
-<vertex x="0" y="-2.54"/>
-<vertex x="-0.508" y="-1.27"/>
-<vertex x="0.508" y="-1.27"/>
-</polygon>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="JACK-PLUG" urn="urn:adsk.eagle:component:7496/2" prefix="J" uservalue="yes" library_version="2">
-<description>&lt;b&gt;DC POWER JACK&lt;/b&gt;&lt;br&gt;
-Power Jack, DC, Right Angle, Through Hole, Rated 5A at 16VDC, PC Terminals&lt;p&gt;
-Distributor: &lt;b&gt;Farnell (www.Farnell.de)&lt;/b&gt;&lt;br&gt;
-Drawing: &lt;b&gt;84N1161.pdf / 84N1162.pdf&lt;/b&gt;&lt;br&gt;
-Manufacturer: &lt;b&gt;SPC Technology (www.spctechnology.com)&lt;/b&gt;&lt;br&gt;
-Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
+<deviceset name="W237-102" urn="urn:adsk.eagle:component:10702/2" prefix="X" uservalue="yes" library_version="2">
+<description>&lt;b&gt;WAGO SCREW CLAMP&lt;/b&gt;</description>
 <gates>
-<gate name="G$1" symbol="JACK-PLUG" x="0" y="0"/>
+<gate name="-1" symbol="KL" x="0" y="5.08" addlevel="always"/>
+<gate name="-2" symbol="KL+V" x="0" y="0" addlevel="always"/>
 </gates>
 <devices>
-<device name="1" package="SPC4078">
+<device name="" package="W237-102">
 <connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="-1" pin="KL" pad="1"/>
+<connect gate="-2" pin="KL" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:7494/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:10688/1"/>
 </package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
+<attribute name="MPN" value="237-102" constant="no"/>
 <attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-<attribute name="POPULARITY" value="3" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="0" package="SPC4077">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:7492/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-<attribute name="POPULARITY" value="0" constant="no"/>
+<attribute name="OC_NEWARK" value="70K9898" constant="no"/>
+<attribute name="POPULARITY" value="32" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -18144,7 +17979,6 @@ Footprint with ISP pads</description>
 <part name="FET_R" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IRF540" device="" package3d_urn="urn:adsk.eagle:package:29484/3"/>
 <part name="FET_G" library="transistor-power" library_urn="urn:adsk.eagle:library:400" deviceset="IRF540" device="" package3d_urn="urn:adsk.eagle:package:29484/3"/>
 <part name="LED_OUT" library="con-wago-500" library_urn="urn:adsk.eagle:library:195" deviceset="W237-4" device="" package3d_urn="urn:adsk.eagle:package:10695/1"/>
-<part name="12V_IN" library="con-jack" library_urn="urn:adsk.eagle:library:154" deviceset="JACK-PLUG" device="1" package3d_urn="urn:adsk.eagle:package:7494/1" value="12V"/>
 <part name="5V_REG" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="TV" package3d_urn="urn:adsk.eagle:package:16417/2" technology="05"/>
 <part name="X_5" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="GND" device=""/>
 <part name="F1" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="SH22,5" device="" package3d_urn="urn:adsk.eagle:package:14059/1" value="13A"/>
@@ -18163,6 +17997,7 @@ Footprint with ISP pads</description>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="100"/>
 <part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="100"/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2" value="100"/>
+<part name="12V_IN" library="con-wago-500" library_urn="urn:adsk.eagle:library:195" deviceset="W237-102" device="" package3d_urn="urn:adsk.eagle:package:10688/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -18193,10 +18028,6 @@ Footprint with ISP pads</description>
 <instance part="LED_OUT" gate="-4" x="-10.16" y="17.78" smashed="yes">
 <attribute name="VALUE" x="-12.7" y="14.097" size="1.778" layer="96"/>
 <attribute name="NAME" x="-12.7" y="18.669" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="12V_IN" gate="G$1" x="12.7" y="-22.86" smashed="yes" rot="R90">
-<attribute name="NAME" x="6.35" y="-27.94" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="8.89" y="-17.78" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="5V_REG" gate="A1" x="20.32" y="5.08" smashed="yes">
 <attribute name="NAME" x="10.16" y="8.255" size="1.778" layer="95"/>
@@ -18249,6 +18080,13 @@ Footprint with ISP pads</description>
 <attribute name="NAME" x="31.75" y="72.6186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="36.83" y="72.644" size="1.778" layer="96"/>
 </instance>
+<instance part="12V_IN" gate="-1" x="10.16" y="-22.86" smashed="yes" rot="R90">
+<attribute name="NAME" x="9.271" y="-22.86" size="1.778" layer="95" rot="R270"/>
+</instance>
+<instance part="12V_IN" gate="-2" x="15.24" y="-22.86" smashed="yes" rot="R90">
+<attribute name="VALUE" x="18.923" y="-25.4" size="1.778" layer="96" rot="R90"/>
+<attribute name="NAME" x="14.351" y="-22.86" size="1.778" layer="95" rot="R270"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -18273,7 +18111,6 @@ Footprint with ISP pads</description>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="12V_IN" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="-17.78" x2="20.32" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="-17.78" x2="20.32" y2="-12.7" width="0.1524" layer="91"/>
 <pinref part="X_6" gate="G$1" pin="0"/>
@@ -18289,12 +18126,9 @@ Footprint with ISP pads</description>
 <junction x="20.32" y="-7.62"/>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="30.48" y1="-7.62" x2="20.32" y2="-7.62" width="0.1524" layer="91"/>
-<pinref part="12V_IN" gate="G$1" pin="2"/>
-<junction x="12.7" y="-17.78"/>
-<wire x1="12.7" y1="-17.78" x2="15.24" y2="-17.78" width="0.1524" layer="91"/>
-<junction x="15.24" y="-17.78"/>
 <pinref part="5V_REG" gate="A1" pin="GND"/>
 <wire x1="20.32" y1="-2.54" x2="20.32" y2="-7.62" width="0.1524" layer="91"/>
+<pinref part="12V_IN" gate="-2" pin="KL"/>
 </segment>
 <segment>
 <pinref part="FET_B" gate="G$1" pin="S"/>
@@ -18339,7 +18173,6 @@ Footprint with ISP pads</description>
 <net name="12V_IN" class="0">
 <segment>
 <pinref part="F1" gate="1" pin="1"/>
-<pinref part="12V_IN" gate="G$1" pin="3"/>
 <wire x1="-5.08" y1="-2.54" x2="10.16" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="10.16" y1="-2.54" x2="10.16" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="+"/>
@@ -18351,6 +18184,7 @@ Footprint with ISP pads</description>
 <pinref part="5V_REG" gate="A1" pin="VI"/>
 <wire x1="10.16" y1="5.08" x2="10.16" y2="-2.54" width="0.1524" layer="91"/>
 <junction x="10.16" y="-2.54"/>
+<pinref part="12V_IN" gate="-1" pin="KL"/>
 </segment>
 </net>
 <net name="G_DRAIN" class="0">
@@ -18464,9 +18298,19 @@ Footprint with ISP pads</description>
 </sheet>
 </sheets>
 <errors>
-<approved hash="204,1,78.74,58.42,U$1,GND.1,,,,"/>
-<approved hash="204,1,86.36,20.32,U$1,VIN,,,,"/>
-<approved hash="204,1,53.34,20.32,U$1,3V3,,,,"/>
+<approved hash="102,1,93.98,12.7,0,GND,,,,"/>
+<approved hash="102,1,22.86,-20.32,0,GND,,,,"/>
+<approved hash="102,1,5.08,25.4,0,GND,,,,"/>
+<approved hash="102,1,5.08,45.72,0,GND,,,,"/>
+<approved hash="102,1,5.08,66.04,0,GND,,,,"/>
+<approved hash="102,1,119.38,68.58,0,GND,,,,"/>
+<approved hash="204,1,78.74,58.42,ARDUINO_NANO,GND.1,,,,"/>
+<approved hash="204,1,86.36,20.32,ARDUINO_NANO,VIN,,,,"/>
+<approved hash="104,1,83.82,20.32,ARDUINO_NANO,GND.2,GND,,,"/>
+<approved hash="204,1,53.34,20.32,ARDUINO_NANO,3V3,,,,"/>
+<approved hash="104,1,124.46,38.1,BT_MODULE,+5V,5V,,,"/>
+<approved hash="113,1,-13.9627,33.02,LED_OUT,,,,,"/>
+<approved hash="113,1,10.16,-23.8396,12V_IN,,,,,"/>
 </errors>
 </schematic>
 </drawing>
