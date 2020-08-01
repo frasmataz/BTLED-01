@@ -6,17 +6,27 @@ struct Colour {
   int r;
   int g;
   int b;
+  long duration;
 
   Colour() {
     r = 0;
     g = 0;
     b = 0;
+    duration = 0;
   }
 
   Colour(int r_, int g_, int b_) {
     r = r_;
     g = g_;
     b = b_;
+    duration = 0;
+  }
+
+  Colour(int r_, int g_, int b_, long duration_) {
+    r = r_;
+    g = g_;
+    b = b_;
+    duration = duration_;
   }
 };
 
@@ -62,7 +72,7 @@ void progressAnimations() {
       fadeListIndex = (fadeListIndex + 1) % fadeListSize;
       setLeds(fadeList[fadeListIndex]);
       animationStartTime = millis();
-      animationEndTime = animationStartTime + 2000;
+      animationEndTime = animationStartTime + fadeList[fadeListIndex].duration;
     }
   }
 }
@@ -128,10 +138,11 @@ void setFadeList() {
     int r_ = hc05.read();
     int g_ = hc05.read();
     int b_ = hc05.read();
+    long duration = hc05.read() * 100; // Byte in tenths of a second
     int signal = hc05.read();
 
-    log_("Adding " + String(r_) + " " + String(g_) + " " + String(b_));
-    fadeList[i] = Colour(r_, g_, b_);
+    log_("Adding " + String(r_) + " " + String(g_) + " " + String(b_) + " " + String(duration));
+    fadeList[i] = Colour(r_, g_, b_, duration);
     setLeds(Colour(r_, g_, b_));
     continue_ = (signal == 7 ? true : false);
     log_(String(continue_));
@@ -141,7 +152,7 @@ void setFadeList() {
   fadeListSize = i;
   fadeListIndex = 0;
   animationStartTime = millis();
-  animationEndTime = animationStartTime + 2000;
+  animationEndTime = 0;
   state = FADE_LIST;
 }
 
