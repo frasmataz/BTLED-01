@@ -2,16 +2,16 @@
 
 SoftwareSerial hc05(3,2); // RX, TX pins
 
-const int BLUE_PIN = 9;
-const int RED_PIN = 10;
-const int GREEN_PIN = 11;
-
-const int TIMEOUT = 2000;
-
 struct Colour {
   int r;
   int g;
   int b;
+
+  Colour() {
+    r = 0;
+    g = 0;
+    b = 0;
+  }
 
   Colour(int r_, int g_, int b_) {
     r = r_;
@@ -20,9 +20,23 @@ struct Colour {
   }
 };
 
+const int BLUE_PIN = 9;
+const int RED_PIN = 10;
+const int GREEN_PIN = 11;
+
+const int TIMEOUT = 2000;
+enum State { IDLE, SOLID_COLOUR, FADE_LIST };
+const int FADE_LIST_MAX_SIZE = 10;
+
+Colour prevColour = Colour(0,0,0);
+long animationStartTime = 0;
+long animationEndTime = 0;
+Colour fadeList[FADE_LIST_MAX_SIZE];
+int fadeListIndex = 0;
+int fadeListSize = 0;
+State state = IDLE;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   hc05.begin(9600);
   
@@ -32,6 +46,28 @@ void setup() {
 }
 
 void loop() {
+  getCommand();
+  progressAnimations();
+}
+
+void progressAnimations() {
+  if (state == FADE_LIST) {
+    if (millis() < animationEndTime) {
+      setLeds( interpolateColour(
+         fadeList[fadeListIndex],
+         fadeList[(fadeListIndex + 1) % fadeListSize],
+         float(millis() - animationStartTime) / float(animationEndTime - animationStartTime)
+      ) );
+    } else {
+      fadeListIndex = (fadeListIndex + 1) % fadeListSize;
+      setLeds(fadeList[fadeListIndex]);
+      animationStartTime = millis();
+      animationEndTime = animationStartTime + 2000;
+    }
+  }
+}
+
+void getCommand() {
   if(hc05.available()) {
     char startByte = hc05.read();
     if(startByte == '#') {
@@ -43,19 +79,9 @@ void loop() {
 
         // Run command
         if (command == '1') {
-          // Set single colour
-          // Takes three ints
-          log_("Set colour");
-          if (hc05.available() == 3) {
-            int r_ = hc05.read();
-            int g_ = hc05.read();
-            int b_ = hc05.read();
-            log_("Setting " + String(r_) + " " + String(g_) + " " + String(b_));
-
-            setLeds(Colour(r_, g_, b_));
-          } else {
-            log_("incorrect " + String(hc05.available()) + " bytes available");
-          }
+          setSingleColour();
+        } else if (command == '2') {
+          setFadeList();
         } else {
           log_("Unknown command: " + command);
         }
@@ -66,7 +92,57 @@ void loop() {
       hc05.flush();
     }
     log_("Done");
+    hc05.flush();
   }
+}
+
+void setSingleColour() {
+  // Set single colour
+  // Takes three ints: R, G, B
+  log_("Set colour");
+  if (hc05.available() == 3) {
+    int r_ = hc05.read();
+    int g_ = hc05.read();
+    int b_ = hc05.read();
+    log_("Setting " + String(r_) + " " + String(g_) + " " + String(b_));
+
+    setLeds(Colour(r_, g_, b_));
+    state = SOLID_COLOUR;
+  } else {
+    log_("only " + String(hc05.available()) + " bytes available");
+  }
+}
+
+void setFadeList() {
+  // Fade list
+  // Takes groups of four bytes:
+  // R, G, B, followed by either a ';' if there is more to come, or any other byte to end.
+  log_("Fade list");
+
+  int i = 0;
+  boolean continue_ = true;
+
+  // Read in list of colours
+  while (continue_ && i < FADE_LIST_MAX_SIZE) {
+    pauseForNBytes(4);
+    int r_ = hc05.read();
+    int g_ = hc05.read();
+    int b_ = hc05.read();
+    int signal = hc05.read();
+
+    log_("Adding " + String(r_) + " " + String(g_) + " " + String(b_));
+    fadeList[i] = Colour(r_, g_, b_);
+    setLeds(Colour(r_, g_, b_));
+    continue_ = (signal == 7 ? true : false);
+    log_(String(continue_));
+    i++;
+  }
+
+  fadeListSize = i;
+  fadeListIndex = 0;
+  animationStartTime = millis();
+  animationEndTime = animationStartTime + 2000;
+  state = FADE_LIST;
 }
 
 boolean pauseForNBytes(int minBytes) {
@@ -82,6 +158,19 @@ boolean pauseForNBytes(int minBytes) {
   }
 
   return true;
+}
+
+long interpolate(long minVal, long maxVal, float scale) {
+  //scale is how far between minVal and maxVal to interpolate, between 0.0 and 1.0
+  return minVal + ( (maxVal - minVal) * scale );
+}
+
+Colour interpolateColour(Colour colour1, Colour colour2, float scale) {
+  return Colour(
+    interpolate(colour1.r, colour2.r, scale),
+    interpolate(colour1.g, colour2.g, scale),
+    interpolate(colour1.b, colour2.b, scale)
+  );
 }
 
 void test_leds() {
@@ -104,6 +193,7 @@ void setLeds(Colour colour) {
   analogWrite(RED_PIN, colour.r);
   analogWrite(GREEN_PIN, colour.g);
   analogWrite(BLUE_PIN, colour.b);
+  prevColour = colour;
 }
 
 void log_(String message) {
