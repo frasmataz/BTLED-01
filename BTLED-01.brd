@@ -95,11 +95,11 @@
 <wire x1="82.55" y1="27.94" x2="82.55" y2="85.09" width="0.508" layer="20"/>
 <wire x1="82.55" y1="85.09" x2="-2.54" y2="85.09" width="0.508" layer="20"/>
 <text x="60.96" y="31.75" size="2.54" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">BTLED-01</text>
-<text x="69.85" y="38.1" size="1.6764" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">v0.2.0</text>
+<text x="69.85" y="38.1" size="1.6764" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">v0.3.0</text>
 <text x="29.21" y="36.83" locked="yes" size="1.4224" layer="1" font="vector" ratio="12" grouprefs="DESIGNED_IN_SCOTLAND">Designed in
 Scotland</text>
 <text x="60.96" y="35.56" size="5.08" layer="1" font="vector" ratio="12" grouprefs="INFO_TEXT">F#</text>
-<text x="69.85" y="35.56" size="1.6764" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">07/20</text>
+<text x="69.85" y="35.56" size="1.6764" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">08/20</text>
 <text x="0" y="57.15" size="1.9304" layer="1" font="vector" align="center">+</text>
 <text x="22.86" y="63.5" size="2.54" layer="1" font="vector" ratio="10" rot="SR270" align="center">R</text>
 <text x="22.86" y="45.72" size="2.54" layer="1" font="vector" ratio="10" rot="SR270" align="center">G</text>
