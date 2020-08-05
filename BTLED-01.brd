@@ -95,7 +95,7 @@
 <wire x1="82.55" y1="27.94" x2="82.55" y2="85.09" width="0.508" layer="20"/>
 <wire x1="82.55" y1="85.09" x2="-2.54" y2="85.09" width="0.508" layer="20"/>
 <text x="60.96" y="31.75" size="2.54" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">BTLED-01</text>
-<text x="69.85" y="38.1" size="1.6764" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">v0.3.0</text>
+<text x="69.85" y="38.1" size="1.6764" layer="1" font="vector" ratio="10" grouprefs="INFO_TEXT">v0.3.1</text>
 <text x="29.21" y="36.83" locked="yes" size="1.4224" layer="1" font="vector" ratio="12" grouprefs="DESIGNED_IN_SCOTLAND">Designed in
 Scotland</text>
 <text x="60.96" y="35.56" size="5.08" layer="1" font="vector" ratio="12" grouprefs="INFO_TEXT">F#</text>
