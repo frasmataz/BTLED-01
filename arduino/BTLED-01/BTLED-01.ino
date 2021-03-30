@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial hc05(3,2); // RX, TX pins
+SoftwareSerial hc05(2,3); // RX, TX pins
 
 struct Colour {
   int r;
@@ -79,6 +79,7 @@ void progressAnimations() {
 
 void getCommand() {
   if(hc05.available()) {
+    log_("command");
     char startByte = hc05.read();
     if(startByte == '#') {
       log_("Caught start byte");
@@ -211,4 +212,3 @@ void log_(String message) {
   Serial.println(message);
   //hc05.println(message);
 }
-
