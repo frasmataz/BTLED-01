@@ -1,18 +1,24 @@
+#include <SimplexNoise.h>
 #include <SoftwareSerial.h>
 
 SoftwareSerial hc05(2,3); // RX, TX pins
+SimplexNoise sn;
 
 struct Colour {
   int r;
   int g;
   int b;
   long duration;
+  int flickerAmplitude;
+  int flickerFrequency;
 
   Colour() {
     r = 0;
     g = 0;
     b = 0;
     duration = 0;
+    flickerAmplitude = 0;
+    flickerFrequency = 0;
   }
 
   Colour(int r_, int g_, int b_) {
@@ -20,13 +26,17 @@ struct Colour {
     g = g_;
     b = b_;
     duration = 0;
+    flickerAmplitude = 0;
+    flickerFrequency = 0;
   }
 
-  Colour(int r_, int g_, int b_, long duration_) {
+  Colour(int r_, int g_, int b_, long duration_, int flickerAmplitude_, int flickerFrequency_) {
     r = r_;
     g = g_;
     b = b_;
     duration = duration_;
+    flickerAmplitude = flickerAmplitude_;
+    flickerFrequency = flickerFrequency_;
   }
 };
 
@@ -36,7 +46,7 @@ const int GREEN_PIN = 11;
 
 const int TIMEOUT = 2000;
 enum State { IDLE, SOLID_COLOUR, FADE_LIST };
-const int FADE_LIST_MAX_SIZE = 10;
+const int FADE_LIST_MAX_SIZE = 8;
 
 Colour prevColour = Colour(0,0,0);
 long animationStartTime = 0;
@@ -63,14 +73,17 @@ void loop() {
 void progressAnimations() {
   if (state == FADE_LIST) {
     if (millis() < animationEndTime) {
-      setLeds( interpolateColour(
+      Colour nextColour = interpolateColour(
          fadeList[fadeListIndex],
          fadeList[(fadeListIndex + 1) % fadeListSize],
          float(millis() - animationStartTime) / float(animationEndTime - animationStartTime)
-      ) );
+        );
+
+      setLeds( applyFlickerEffect( nextColour ));
+      prevColour = nextColour;
     } else {
       fadeListIndex = (fadeListIndex + 1) % fadeListSize;
-      setLeds(fadeList[fadeListIndex]);
+      setLeds(applyFlickerEffect(fadeList[fadeListIndex]));
       animationStartTime = millis();
       animationEndTime = animationStartTime + fadeList[fadeListIndex].duration;
     }
@@ -135,15 +148,17 @@ void setFadeList() {
 
   // Read in list of colours
   while (continue_ && i < FADE_LIST_MAX_SIZE) {
-    pauseForNBytes(4);
+    pauseForNBytes(7);
     int r_ = hc05.read();
     int g_ = hc05.read();
     int b_ = hc05.read();
     long duration = hc05.read() * 100; // Byte in tenths of a second
+    int flickerAmplitude = hc05.read();
+    int flickerFrequency = hc05.read();
     int signal = hc05.read();
-
-    log_("Adding " + String(r_) + " " + String(g_) + " " + String(b_) + " " + String(duration));
-    fadeList[i] = Colour(r_, g_, b_, duration);
+    Colour colour = Colour(r_, g_, b_, duration, flickerAmplitude, flickerFrequency);
+    //logColour(colour);
+    fadeList[i] = colour;
     setLeds(Colour(r_, g_, b_));
     continue_ = (signal == 7 ? true : false);
     log_(String(continue_));
@@ -155,6 +170,23 @@ void setFadeList() {
   animationStartTime = millis();
   animationEndTime = 0;
   state = FADE_LIST;
+}
+
+void logColour(Colour c) {
+  String msg = "";
+  msg += "=====";
+  msg += "Red: " + String(c.r);
+  msg += "Green: " + String(c.g);
+  msg += "Blue: " + String(c.b);
+  msg += "=====;";
+  Serial.println(msg);
+
+  msg = "";
+  msg += "Duration: " + String(c.duration);
+  msg += "Amp: " + String(c.flickerAmplitude);
+  msg += "Freq: " + String(c.flickerFrequency);
+  msg += "=====;";
+  Serial.println(msg);
 }
 
 boolean pauseForNBytes(int minBytes) {
@@ -181,7 +213,34 @@ Colour interpolateColour(Colour colour1, Colour colour2, float scale) {
   return Colour(
     interpolate(colour1.r, colour2.r, scale),
     interpolate(colour1.g, colour2.g, scale),
-    interpolate(colour1.b, colour2.b, scale)
+    interpolate(colour1.b, colour2.b, scale),
+    colour1.duration,
+    colour1.flickerAmplitude,
+    colour1.flickerFrequency
+  );
+}
+
+Colour applyFlickerEffect(Colour input) {
+  float frequency = input.flickerFrequency / 100;
+  int amplitude = input.flickerAmplitude;
+
+  Serial.println("amp: " + String(amplitude) + " freq: " + String(frequency));
+
+  float m = millis();
+  float x = m / 1000.0f * frequency;
+
+  float offset = (sn.noise(x, 0.5f) * amplitude) - (amplitude / 2);
+  offset += (sn.noise(x*2, 1.5f) * amplitude/2) - (amplitude / 4);
+  offset += (sn.noise(x*4, 2.5f) * amplitude/4) - (amplitude / 8);
+  offset += (sn.noise(x*8, 3.5f) * amplitude/8) - (amplitude / 16);
+
+  return Colour(
+      max(min(input.r + (offset * (input.r/255.0f)), 255), 0),
+      max(min(input.g + (offset * (input.g/255.0f)), 255), 0),
+      max(min(input.b + (offset * (input.b/255.0f)), 255), 0),
+      input.duration,
+      input.flickerAmplitude,
+      input.flickerFrequency
   );
 }
 
@@ -205,7 +264,6 @@ void setLeds(Colour colour) {
   analogWrite(RED_PIN, colour.r);
   analogWrite(GREEN_PIN, colour.g);
   analogWrite(BLUE_PIN, colour.b);
-  prevColour = colour;
 }
 
 void log_(String message) {
