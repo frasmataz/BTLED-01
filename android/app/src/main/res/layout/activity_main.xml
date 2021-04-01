@@ -38,9 +38,11 @@
                 android:text="Hue" />
 
             <SeekBar
-                android:id="@+id/seekBar4"
+                android:id="@+id/seekBarHue"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:min="0"
+                android:max="3600" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -49,9 +51,11 @@
                 android:text="Saturation" />
 
             <SeekBar
-                android:id="@+id/seekBar3"
+                android:id="@+id/seekBarSaturation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:min="0"
+                android:max="1000" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -60,14 +64,17 @@
                 android:text="Intensity" />
 
             <SeekBar
-                android:id="@+id/seekBar2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/button2"
+                android:id="@+id/seekBarIntensity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:min="0"
+                android:max="1000" />
+
+            <Button
+                android:id="@+id/setColourButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendSingleColour"
                 android:text="SET" />
         </LinearLayout>
 
